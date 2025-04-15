@@ -9,15 +9,13 @@ const ReviewDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const { data: review, isLoading } = useFetch(
-    `http://localhost:5010/api/posts/get/${id}`
-  );
+  const { data: review, isLoading } = useFetch(`/api/posts/get/${id}`);
 
   const handleDelete = async () => {
     try {
       const token = localStorage.getItem("token");
 
-      await axios.delete(`http://localhost:5010/api/posts/delete/${id}`, {
+      await axios.delete(`/api/posts/delete/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
