@@ -4,11 +4,19 @@ import postsRouter from "./controllers/reviews/index.js";
 import publicRouter from "./controllers/public/index.js";
 import "./utils/dbConnect.js";
 import authMiddleware from "./middlewares/auth.js";
+import cors from 'cors'
 
 const app = express();
 const PORT = config.get("PORT");
 
 app.use(express.json());
+
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "http://127.0.0.1:5173"],
+  })
+);
+
 
 //make a hello world api
 
