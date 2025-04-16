@@ -31,7 +31,7 @@ const Signin = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5010/api/public/login",
+        "/api/public/login",
         formData
       );
       const token = res.data.token;

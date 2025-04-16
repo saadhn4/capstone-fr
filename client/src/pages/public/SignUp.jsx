@@ -32,10 +32,10 @@ const Signup = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5010/api/public/register",
+        "/api/public/register",
         formData
       );
-      alert("Registered succesfully!✅");
+      alert("Registered succesfully!✅ Verify your email please.");
       navigate("/login");
       console.log("Signup Success ✅", res.data);
     } catch (err) {
