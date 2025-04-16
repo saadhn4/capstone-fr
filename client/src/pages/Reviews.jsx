@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const Reviews = () => {
   const { data: reviews, isLoading } = useFetch(
-    "http://localhost:5010/api/posts/getall"
+    "/api/posts/getall"
   );
   return (
     <motion.div
