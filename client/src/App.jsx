@@ -1,12 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Public Pages
 import Home from "./pages/Home";
 import Signin from "./pages/public/SignIn";
 import Signup from "./pages/public/SignUp";
 
-// Protected Pages (these are directly in /src)
+// Protected Pages
 import Reviews from "./pages/Reviews";
 import ReviewDetails from "./ReviewDetails";
 import Create from "./Create";
@@ -17,6 +19,7 @@ import PrivateOutlet from "./PrivateOutlet";
 const App = () => {
   return (
     <Router>
+        <ToastContainer />
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<Home />} />

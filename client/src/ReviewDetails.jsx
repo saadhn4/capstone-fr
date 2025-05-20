@@ -4,6 +4,7 @@ import useFetch from "./useFetch";
 import axios from "axios";
 import Navbar from "./components/Navbar";
 import { motion } from "framer-motion";
+import { toast } from "react-toastify";
 
 const ReviewDetails = () => {
   const { id } = useParams();
@@ -21,11 +22,11 @@ const ReviewDetails = () => {
         },
       });
 
-      alert("Review deleted successfully 🗑️");
+      toast.success("Review deleted successfully 🗑️");
       navigate("/reviews");
     } catch (err) {
       console.error("Delete error:", err.response?.data || err.message);
-      alert("Unauthorized ❌ — You must be signed in to delete this review.");
+      toast.error("Unauthorized ❌ — You must be signed in to delete this review.");
     }
   };
 

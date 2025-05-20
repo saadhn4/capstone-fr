@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "../../components/Navbar";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -35,11 +36,11 @@ const Signup = () => {
         "/api/public/register",
         formData
       );
-      alert("Registered succesfully!✅ Verify your email please.");
+      toast.success("Registered succesfully!✅ Verify your email please.");
       navigate("/login");
       console.log("Signup Success ✅", res.data);
     } catch (err) {
-      console.error("Signup Error ❌", err.response?.data || err.message);
+      toast.error("Signup Error ❌", err.response?.data || err.message);
     }
   };
 

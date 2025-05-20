@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "../../components/Navbar";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Signin = () => {
   const [formData, setFormData] = useState({
@@ -36,20 +37,20 @@ const Signin = () => {
       );
       const token = res.data.token;
       localStorage.setItem("token", token);
-      alert("Login Successful! ✅");
+      toast.success("Login Successful! ✅");
       navigate("/reviews");
     } catch (err) {
       const msg = err.response?.data?.msg;
 
       if (msg === "Email not verified.") {
-        alert("Please verify your email before logging in! 📧");
+        toast.error("Please verify your email before logging in! 📧");
       } else if (msg === "Invalid credentials.") {
-        alert("Incorrect email or password ❌");
+        toast.error("Incorrect email or password ❌");
       } else {
-        alert("Something went wrong. Try again later.");
+        toast.error("Something went wrong. Try again later.");
       }
 
-      console.error("Signin Error ❌", msg || err.message);
+      toast.error("Signin Error ❌", msg || err.message);
     }
   };
 

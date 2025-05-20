@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import { motion } from "framer-motion";
+import { toast } from "react-toastify";
 
 const Create = () => {
   const [restaurantName, setRestaurantName] = useState("");
@@ -27,10 +28,11 @@ const Create = () => {
         },
       });
 
-      alert("Review posted successfully! ✅");
+      toast.success("Review posted successfully! ✅");
       navigate("/reviews");
     } catch (error) {
       console.error("Post error:", error.response?.data || error.message);
+      toast.error("Post error:", error.response?.data || error.message);
     }
   };
 
