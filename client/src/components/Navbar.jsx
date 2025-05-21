@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { HiMenu, HiX } from "react-icons/hi"; // 👈 install with `npm i react-icons`
+import { HiMenu, HiX } from "react-icons/hi"; 
 import { toast } from "react-toastify";
 
 const Navbar = () => {
